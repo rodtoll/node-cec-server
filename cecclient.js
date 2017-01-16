@@ -45,7 +45,7 @@ class CecClient extends EventEmitter {
         console.log('=-=-=-=-=-= Queuing Command Send: '+command);
         this.commandQueue.push((cb) => {
             console.log('=-=-=-=-=-= De-Queuing and Sending Command: '+command);
-            this.cecProcess.stdin.write(command);
+            this.cecProcess.stdin.write(command+'\n\r');
         });
         this.commandQueue.start();
     }

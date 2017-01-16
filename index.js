@@ -74,7 +74,11 @@ class NodeCecServer {
             var newDevice = this.cecClient.getDeviceByPhysicalAddress(newAddress);
             console.log('################## Switching inputs:');
             console.log('OLD DEVICE: '+oldDevice.getStatus());
-            console.log('NEW DEVICE: '+newDevice.getStatus());
+            if(newDevice != null) {
+                console.log('NEW DEVICE: '+newDevice.getStatus());
+            } else {
+                console.log('NEW DEVICE: Not found, address: '+newAddress);
+            }
         });
     }
 
