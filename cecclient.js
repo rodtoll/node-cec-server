@@ -69,7 +69,7 @@ class CecClient extends EventEmitter {
 
     raiseDeviceEventIfNeeded(device, changed) {
         if(this.notifiedAboutDevice[device.getLogicalAddress()] == undefined) {
-            if(device.isReady()) {
+            if(device.isReady() || device.getPhysicalAddress() == CecClient.PHYSICAL_ADDRESS_TV) {
                 this.notifiedAboutDevice[device.getLogicalAddress()] = true;
                 this.emit(CecClient.EVENT_NEW_DEVICE, device);
             }
