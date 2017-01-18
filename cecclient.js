@@ -58,12 +58,12 @@ class CecClient extends EventEmitter {
     }
 
     requestStandby(device) {
-        var commandToSend = "standby "+device.getLogicalAddress();
+        var commandToSend = "standby "+device.getLogicalAddress().toString(16);
         this.transmitCommand(commandToSend);
     }
 
     requestOn(device) {
-        var commandToSend = 'on '+device.getLogicalAddress();
+        var commandToSend = 'on '+device.getLogicalAddress().toString(16);
         this.transmitCommand(commandToSend);
     }
 
